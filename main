@@ -1,0 +1,1380 @@
+# Libraries ================================================================================
+import time
+import random
+import fontstyle
+from colorama import Fore
+from random import sample
+from datetime import date, datetime
+
+# List ========================================================================================
+user_name = []
+pass_word = []
+
+med_list = []
+dose_list = []
+day_list = []
+time_list = []
+
+MondayMedDoseList = []
+TuesdayMedDoseList = []
+WednesdayMedDoseList = []
+ThursdayMedDoseList = []
+FridayMedDoseList = []
+SaturdayMedDoseList = []
+SundayMedDoseList = []
+
+MondayTimeList = []
+TuesdayTimeList = []
+WednesdayTimeList = []
+ThursdayTimeList = []
+FridayTimeList = []
+SaturdayTimeList = []
+SundayTimeList = []
+
+psychs = ['Dr. Apolonia Pereia: (428) 346-9960', 
+  'Dr. Edward Cullen: (730) 963-6209', 
+  'Dr. Tunsion: (721) 818-5648',
+  'Dr. Regenbogen: (789) 436-9525',
+  'Dr. Truls Mandel: (312) 330-6644',
+  'Dr. Giles: (202) 568-1852',
+  'Dr. Brooks: (900) 267-5735',
+  'Dr. Amelina Bunschoten: (291) 521-4012',
+  'Dr. Kelsey: (690) 714-9365',
+  'Dr. Myrddin Virág: (577) 642-3044']
+
+thera = ['Dr. Emersyn Butler: (734) 251-4325',
+ 'Dr. Guðleifr Adamsson: (553) 633-5631',
+ 'Dr. Bullens: (214) 896-4777',
+ 'Dr. Kermode: (557) 495-8523',
+ 'Dr. Panni Haig: (402) 409-9277',
+ 'Dr. Petar Eglītis: (393) 398-9539',
+ 'Dr. Beck: (701) 954-5199',
+ 'Dr. Neumann: (712) 240-9647',
+ 'Dr. Panni Haig: (556) 266-6979',
+ 'Dr. Purnima: (248) 384-4846']
+
+list_thera = []
+list_pysch = []
+thera_list = []
+pyschs_list = []
+
+for i in range(len(psychs)):
+  ratings = ['★ ★ ★ ★ ★', '★ ★ ★ ★', '★ ★ ★', '★ ★', '★']
+  rating = random.choice(ratings)
+  pyschs_list.append(psychs[i] + ', rating: ' + rating)
+
+for i in range(len(thera)):
+  ratings = ['★ ★ ★ ★ ★', '★ ★ ★ ★', '★ ★ ★', '★ ★', '★']
+  rating = random.choice(ratings)
+  thera_list.append(thera[i] + ', rating: ' + rating)
+
+appointmentThera = []
+appointmentPsych = []
+days = []
+appointment = []
+
+# Quotes ====================================================================================
+quotes = ['"Greatness is a lot small things done well" - Eric Thomas', '"The secret of getting ahead is getting started.” - Mark Twain', '"Do one thing every day that scares you." - Eleanor Roosevelt', '"Happiness is not something ready made. It comes from your own actions." - Dalai Lama XIV', '"Whatever you are, be a good one." - Abraham Lincoln', '"You can either experience the pain of discipline or the pain of regret. The choice is yours" - Jim Rohn','"At the end of the day, whether or not those people are comfortable with how you are living your life doesnt matter. What matters is whether you are comfortable with it." - Dr.Phil', '"You define your own life. Don\'t let other people write your script." - Oprah Winfrey', ' "Wake up determined, go to bed satisfied." - Dwayne "The Rock" Johnson', '"Real change, enduring change, happens one step at a time." - Ruth Bader Ginsburg', '"Life is like riding a bicycle. To keep your balance, you must keep moving." - Albert Einstein', '"I have learned over the years that when ones mind is made up, this diminishes fear; knowing what must be done does away with fear." - Rosa Parks', 'Out of the mountain of despair, a stone of hope." - Martin Luther King, Jr."', '"It is never too late to be what you might have been." - George Eliot', '"We have to let go of who we think we should be and embrace what is." - Achea Redd', '"It is during our darkest moments that we must focus to see the light." - Aristotle', '"You must be the change you wish to see in the world." - Mahatma Gandhi', '"The journey of a thousand miles begins with one step." - Lao Tzu', '"Life has got all those twists and turns. You\'ve got to hold on tight and off you go." - Nicole Kidman', '"Keep your face always toward the sunshine, and shadows will fall behind you." - Walt Whitman', '"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill']
+
+quote_ran = random.choice(quotes)
+quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+
+# Introduction ================================================================================
+print("👋 Welcome to " + Fore.GREEN + "FinerPsych 🧠" + Fore.WHITE + ", a platform for hopefully getting effective mental health help. For You 👋")
+
+print()
+input('Press enter to continue: ')
+print()
+
+time.sleep(1)
+print(quote)
+time.sleep(3)
+print()
+
+# Menu ======================================================================================
+
+def Menu():
+  print('📄 Welcome to the ' + Fore.GREEN + 'FinerPsych ' + Fore.WHITE + 'Menu 📄')
+  print('Please select one (Type the number of the section):')
+  print()
+
+  print('⚫️ Self-Assessment Tests (1)')
+  print('⚫️ Mental Disorders Tips and Definitions (2)')
+  print('⚫️ Medication Tracker (3)')
+  print('⚫️ Find a registered psychiatrist or therapist (4)')
+  print('⚫️ Exit (5)')
+
+  print()
+  select = str(input(""))
+  print()
+
+
+# Self Diagnoses Test ======================================================================
+  if select == "1":
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    warning = fontstyle.apply('registered psychologist, pyshciatrist, or therapist ', 'Underline/Bold/red')
+    print('* REMINDER: I am not a ' + Fore.RED + warning + Fore.WHITE + '*')
+    print('This ' + Fore.RED + 'section ' + Fore.WHITE + 'is to take hand-picked ' + Fore.CYAN + 'online self-assessmenet test' + Fore.WHITE + ', to hopefully understand more about your disorder')
+    print()
+
+    time.sleep(1)
+
+    warn_tests = fontstyle.apply('always', 'Bold/Underline/red')
+    print('However, ' + warn_tests + ' make sure to go see your therapist or psychiatrists to fully diagnose, these are only to see where you are at')
+    input("Press enter to continue: ")
+    print()
+
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    print(Fore.BLUE + 'General Mental Health Assesments' + Fore.WHITE + ', unsure what category you fall under, take a test:')
+    print(Fore.LIGHTYELLOW_EX + " Minnesota Multiphasic Personality Inventory by IDRlabs:")
+    print(Fore.WHITE + "  https://www.idrlabs.com/multiphasic-personality/test.php")
+    print()
+    print(Fore.LIGHTYELLOW_EX + " Psychology Today:")
+    print(Fore.WHITE + "  https://www.psychologytoday.com/us/tests/health/mental-health-assessment")
+    print()
+
+    print(Fore.BLUE + 'Generalized Anxiety Tests')
+    print(Fore.LIGHTYELLOW_EX + ' HeadSpace')
+    print(Fore.WHITE + '  https://www.talkspace.com/assessments')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Clinical Partners')
+    print(Fore.WHITE + '  https://www.clinical-partners.co.uk/online-tests')
+    print()
+
+    print(Fore.BLUE + 'Depression Tests')
+    print(Fore.LIGHTYELLOW_EX + " Psychology Today")
+    print(Fore.WHITE + "  https://www.psychologytoday.com/us/tests/health/depression-test")
+    print()
+    print(Fore.LIGHTYELLOW_EX + " Clinical Partners")
+    print(Fore.WHITE + "  https://www.clinical-partners.co.uk/for-adults/depression/a-test-for-depression")
+    print()
+
+    print(Fore.BLUE + 'PTSD (Post Dramatic Stress Disorder) Tests')
+    print(Fore.LIGHTYELLOW_EX + ' Mind Diagnostic')
+    print(Fore.WHITE + '  https://www.mind-diagnostics.org/ptsd-test/screener')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' HeadSpace')
+    print(Fore.WHITE + '  https://www.talkspace.com/assessments/ptsd-test')
+    print()
+
+    print(Fore.BLUE + 'Schizophrenia Tests')
+    print(Fore.LIGHTYELLOW_EX + ' MHA (Mental Health America)')
+    print(Fore.WHITE + '  https://screening.mhanational.org/screening-tools/psychosis/?layout=actions_neutral')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' IDRlabs')
+    print(Fore.WHITE + '  https://www.idrlabs.com/3-minute-schizophrenia/test.php')
+    print()
+
+    print(Fore.BLUE + 'ADHD (Attention-Deficit / Hyperactivity Disorder) Tests')
+    print(Fore.LIGHTYELLOW_EX + ' Attention Deficit Disorder Association (ADDA)')
+    print(Fore.WHITE + '  https://add.org/adhd-test/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Clinical Partners')
+    print(Fore.WHITE + '  https://www.clinical-partners.co.uk/for-adults/adult-adhd-add/test-for-adhd')
+    print()
+
+    print(Fore.BLUE + 'OCD (Obessesive Complusive Disorder) Tests')
+    print(Fore.LIGHTYELLOW_EX + ' Anxiety Centre')
+    print(Fore.WHITE + '  https://www.anxietycentre.com/tests/ocd-test/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' HeadSpace')
+    print(Fore.WHITE + '  https://www.talkspace.com/assessments/obsessive-compulsive-disorder-test')
+    print()
+
+    print(Fore.BLUE + 'Autism Tests')
+    print(Fore.LIGHTYELLOW_EX + ' IDRlabs')
+    print(Fore.WHITE + '  https://www.idrlabs.com/autism-spectrum/test.php')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' CAT-Q by Embrace Autism' + Fore.WHITE + ', To see if you camouflauge autistic traits')
+    print(Fore.WHITE + '  https://embrace-autism.com/cat-q/')
+    print()
+
+    print(Fore.BLUE + 'Eating Disorder Tests')
+    print(Fore.LIGHTYELLOW_EX + ' Mental Health America (MHA)')
+    print(Fore.WHITE + '  https://screening.mhanational.org/screening-tools/eating-disorder/?layout=hide_progress')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Eating Recovery Center')
+    print(Fore.WHITE + '  https://www.eatingrecoverycenter.com/conditions/eating-disorders/quiz')
+    print()
+
+    print(Fore.BLUE + 'Bipolar Tests')
+    print(Fore.LIGHTYELLOW_EX + ' SoCal Mental Health')
+    print(Fore.WHITE + '  https://socalmentalhealth.com/bipolar-disorder-test-and-guide/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Clinical Partners')
+    print(Fore.WHITE + '  https://www.clinical-partners.co.uk/for-adults/bipolar/test-for-bipolar/bipolar-test-results/results')
+    print()
+
+    print(Fore.BLUE + 'DID (Dissociative Personality Disorder)')
+    print(Fore.LIGHTYELLOW_EX + ' Psychological Counseling Services')
+    print(Fore.WHITE + ' https://pcsintensive.com/screening/screen_des.html')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Mind Diagnostics')
+    print(Fore.WHITE + '  https://www.mind-diagnostics.org/dissociative_identity_disorder-test')
+    print()
+
+    print('💻 Sorry if your assessment isnt on here, but it could be even more reason to go see a therapist or psychiatrist 💻')
+    print()
+
+# Restart for Self-Assessment Tests ========================================================
+    def SubMenu1():
+      restart1 = input("Do you want to go back to the Menu (y/n): ")
+
+      if restart1 == "y" or restart1 == "Y" or restart1 == "yes" or restart1 == "Yes":
+        print()
+        time.sleep(1)
+        quote_ran = random.choice(quotes)
+        quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+        print(quote)
+        time.sleep(3)
+        print()
+        Menu()
+
+      elif restart1 == "n" or restart1 == "N" or restart1 == "no" or restart1 == "No":
+        print('Thank You For Using ' + Fore.GREEN + 'FinerPsych 🧠')
+
+      else:
+        sorry = fontstyle.apply('❌ Sorry but that is not something you cannot select ❌', 'Underline/Bold/red')
+        print(sorry)
+        print()
+        SubMenu1()
+
+    SubMenu1()
+
+# Mental Disorders Tips =====================================================================
+  elif select == "2":
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    warning = fontstyle.apply('registered psychologist, pyshciatrist, or therapist ', 'Underline/Bold/red')
+    print('* REMINDER: I am not a ' + Fore.RED + warning + Fore.WHITE + '*')
+    print('This section is to help ' + Fore.CYAN + 'understand and get tips ' + Fore.WHITE + 'on your mental disorder, to more effectively treat it. I do this through offering handpicked ' + Fore.CYAN + 'articles or sites')
+
+    print()
+    time.sleep(1)
+
+    warn_defs = fontstyle.apply('always', 'Underline/Bold/red')
+    print(Fore.WHITE + 'However, you should ' + warn_defs + ' go seek further help from a therapist or psychatrist on you condition, to get the best care needed')
+    input('Press enter to continue: ')
+    print()
+
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    print(Fore.BLUE + 'General Self Care Tips' + Fore.WHITE + ', if conditions are minor or you dont suffer from a disorder, here are some general tips')
+    print(Fore.LIGHTYELLOW_EX + ' National Institute of Mental Health')
+    print(Fore.WHITE + '  https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Mental Health America')
+    print(Fore.WHITE + '  https://mhanational.org/taking-good-care-yourself')
+    print()
+
+    print(Fore.BLUE + 'Generalized Anxiety')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Mayo Clinic')
+    print(Fore.WHITE + '  https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/11-tips-for-coping-with-an-anxiety-disorder')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Defintion by WebMD')
+    print(Fore.WHITE + '  https://www.webmd.com/anxiety-panic/anxiety-disorders')
+    print()
+
+    print(Fore.BLUE + 'Depression')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Healthline')
+    print(Fore.WHITE + '  https://www.healthline.com/health/depression/how-to-fight-depression#nature')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by American Psychiatric Association')
+    print(Fore.WHITE + '  https://www.psychiatry.org/patients-families/depression/what-is-depression')
+    print()
+
+    print(Fore.BLUE + 'PTSD (Post Dramatic Stress Disorder)')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by TalkSpace')
+    print(Fore.WHITE + '  https://www.talkspace.com/mental-health/conditions/post-traumatic-stress-disorder/how-to-cope/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by National Institute of Mental Health (NIMH)')
+    print(Fore.WHITE + '  https://www.nimh.nih.gov/health/topics/post-traumatic-stress-disorder-ptsd')
+    print()
+
+    print(Fore.BLUE + 'Schizophrenia')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Mayo Clinic')
+    print(Fore.WHITE + '  https://www.mayoclinic.org/diseases-conditions/schizophrenia/diagnosis-treatment/drc-20354449')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by Cleveland Clinic')
+    print(Fore.WHITE + '  https://my.clevelandclinic.org/health/diseases/4568-schizophrenia')
+    print()
+
+    print(Fore.BLUE + 'ADHD (Attention-Deficit / Hyperactivity Disorder)')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Frida')
+    print(Fore.WHITE + '  https://www.talkwithfrida.com/learn/65-tips-and-tricks-to-better-manage-adult-adhd-without-meds/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Defintion by Centers of Disease Control and Prevention (CDC)')
+    print(Fore.WHITE + '  https://www.cdc.gov/ncbddd/adhd/facts.html')
+    print()
+
+    print(Fore.BLUE + 'OCD (Obessesive Complusive Disorder)')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by NOCD')
+    print(Fore.WHITE + '  https://www.treatmyocd.com/blog/6-best-strategies-to-combat-obsessive-compulsive-disorder')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by International OCD Foundation')
+    print(Fore.WHITE + '  https://iocdf.org/about-ocd/')
+    print()
+
+    print(Fore.BLUE + 'Austism')
+    aut_speaks = fontstyle.apply('Dont get info from Autism Speaks, they spread misinformation on Austism and how to cure it (which you cant)', 'Underline/Bold/red')
+    print(aut_speaks)
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Indiana University Bloomington')
+    print(Fore.WHITE + '  https://www.iidc.indiana.edu/irca/articles/teaching-tips-for-children-and-adults-with-autism.html')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by American Psychiatric Association')
+    print(Fore.WHITE + '  https://www.psychiatry.org/patients-families/autism/what-is-autism-spectrum-disorder')
+    print()
+
+    print(Fore.BLUE + 'Eating Disorders')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Eat With Knowledge')
+    print(Fore.WHITE + '  https://eatwithknowledge.com/favorite-tips-eating-disorder-recovery/')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by Medline Plus')
+    print(Fore.WHITE + '  https://medlineplus.gov/eatingdisorders.html')
+    print()
+
+    print(Fore.BLUE + 'Biopolar Disorder')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by WebMD')
+    print(Fore.WHITE + '  https://www.webmd.com/bipolar-disorder/living-healthy-life-with-bipolar')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' National Institute of Mental Health (NIMH)')
+    print(Fore.WHITE + '  https://www.nimh.nih.gov/health/topics/bipolar-disorder')
+    print()
+
+    print(Fore.BLUE + 'DID (Dissociative Personality Disorder)')
+    print(Fore.LIGHTYELLOW_EX + ' Tips by Charlie Health')
+    print(Fore.WHITE + '  https://www.charliehealth.com/post/how-to-help-someone-with-a-dissociative-disorder')
+    print()
+    print(Fore.LIGHTYELLOW_EX + ' Definition by Mass General Brigham McLean')
+    print(Fore.WHITE + '  https://www.mcleanhospital.org/essential/did')
+    print()
+
+    print('💻 Sorry if your mental condition isnt on here, but it could be even more reason to go see a therapist or psychiatrist 💻')
+    print()
+
+# Restart for Self-Assessment Tests =========================================================
+    def SubMenu2():
+      restart2 = input("Do you want to go back to the Menu (y/n): ")
+
+      if restart2 == "y" or restart2 == "Y" or restart2 == "yes" or restart2 == "Yes":
+        print()
+        time.sleep(1)
+        quote_ran = random.choice(quotes)
+        quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+        print(quote)
+        time.sleep(3)
+        print()
+        Menu()
+
+      elif restart2 == "n" or restart2 == "N" or restart2 == "no" or restart2 == "No":
+        print('Thank You For Using ' + Fore.GREEN + 'FinerPsych 🧠')
+
+      else:
+        sorry = fontstyle.apply('❌ Sorry but that is not something you cannot select ❌', 'Underline/Bold/red')
+        print(sorry)
+        print()
+        SubMenu2()
+
+    SubMenu2()
+
+# Medication Tracker =========================================================================
+  elif select == "3":
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    warning = fontstyle.apply('registered psychologist, pyshciatrist, or therapist �', 'Underline/Bold/red')
+    print('* REMINDER: I am not a ' + Fore.RED + warning + Fore.WHITE + '*')
+    print('In this section, you are able to ' + Fore.CYAN + 'track ' + Fore.WHITE + 'what ' + Fore.CYAN + 'mental medications ' + Fore.WHITE + 'you need to take per day and how much you need to take')
+    print()
+    input("Press enter to continue: ")
+    print()
+
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+
+    list()
+
+# Medication Tracker Homepage ===============================================================
+    def SubMenu3():
+
+      print('💊 Welcome to Medication Tracker Homepage 💊')
+      acc_ask = str(input('Do you have an account with this app (y/n) (Type "back" to go to Menu): '))
+      print()
+
+      def SubdownMenu3():
+        if acc_ask == 'back' or acc_ask == 'Back':
+          print()
+          Menu()
+          
+        if acc_ask == "N" or acc_ask == "n" or acc_ask == "No" or acc_ask == "no":
+
+          user_name.clear()
+          pass_word.clear()
+
+          username = str(input('Enter Your New ' + Fore.GREEN + 'Username' + Fore.WHITE + ': '))
+          user_name.append(username)
+          password = str(input('Enter Your New ' + Fore.GREEN + 'Password' + Fore.WHITE + ': '))
+          pass_word.append(password)
+
+          print()
+          print("This is your current username and password " + Fore.RED + str(user_name) + Fore.WHITE + ", " + Fore.RED + str(pass_word) + Fore.WHITE + ".")
+          print()
+          remake = str(input("Do you want to remake it (y/n): "))
+
+          if remake == "N" or remake == "n" or remake == "No" or remake == "no":
+
+            print()
+            print('Thank You For Making An Account')
+            print()
+
+
+            time.sleep(1)
+            quote_ran = random.choice(quotes)
+            quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+            print(quote)
+            time.sleep(3)
+            print()
+
+            SubMenu3()
+
+          if remake == "Y" or remake == "y" or remake == "Yes" or remake == "yes":
+
+            user_name.clear()
+            pass_word.clear()
+            print()
+            time.sleep(1)
+            quote_ran = random.choice(quotes)
+            quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+            print(quote)
+            time.sleep(3)
+            print()
+
+            SubdownMenu3()
+
+          else:
+            sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+            print(sorry)
+            print()
+            SubdownMenu3()
+
+
+        if acc_ask == "y" and (user_name != [] and pass_word != []):
+          verify = True
+          attempt = 0
+          while verify == True:
+            print('Please Log in:')
+            enter_user = str(input(Fore.GREEN + "Username: " + Fore.WHITE))
+            enter_pass = str(input(Fore.GREEN + "Password: " + Fore.WHITE))
+            stop0 = True
+
+            if enter_user == user_name[0] and enter_pass == pass_word[0]:
+              print('Verified')
+              attempt = 0
+              verify = False
+              print()
+              
+# Med tracker or Reminder =========================================================================================
+              def SubDownMenu4():
+                print('If you already have a list, you can go straight to reminder')
+                SplitOff = input('Type ' + Fore.YELLOW + '"list"' + Fore.WHITE + ' to add medication or type ' + Fore.YELLOW + '"reminder"' + Fore.WHITE + ' to go straight to reminder: ')
+                print()
+
+                if SplitOff == "list" or SplitOff == "List":
+#Medtracker ===============================================================================
+                  def Medtracker():
+                    print('This is used to track the type of medication, dose, day you need to take, and the time you need to take it.')
+                    print()
+
+                    med = input('What medication do you need to take: ')
+
+                    if med != '':
+                      med_list.append(med)
+
+                    amount = input('What is your medication dose, enter the ' + Fore.RED + 'number ' + Fore.WHITE + 'and ' + Fore.RED + 'measurement' + Fore.WHITE + ' (ex: 10mg, no spaces at all, add coma if you need to add another ex: 10mg,5mg): ')
+
+                    if amount != '':
+                      dose_list.append(amount)
+
+                    time_stop = False
+
+                    while time_stop == False:
+                      global time_ask
+                      time_ask = input('What time do you take your medication (' + Fore.GREEN + 'morning, afternoon, evening' + Fore.WHITE + '): ')
+
+                      if time_ask == 'morning' or time_ask == 'afternoon' or time_ask == 'evening' or time_ask == '':
+
+                        if time_ask != '':
+                          time_list.append(time_ask)
+
+                        time_stop = True
+
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print('Say either morning, afternoon, evening, or press enter')
+                        print()
+                        time_stop = False
+
+                    restart1 = False
+
+                    if med != '' or amount != '' or time_ask != '':
+                      while restart1 == False:
+                        days = str(input('What days do you take your medication, enter day of the week as numbers ' + Fore.LIGHTYELLOW_EX + 'monday' + Fore.WHITE + ' = 1, ' + Fore.LIGHTYELLOW_EX + 'tuesday' + Fore.WHITE + ' = 2, ' + Fore.LIGHTYELLOW_EX + 'wednesday' + Fore.WHITE + ' = 3, ' + Fore.LIGHTYELLOW_EX + 'thursday' + Fore.WHITE + ' = 4, ' + Fore.LIGHTYELLOW_EX + 'friday' + Fore.WHITE + ' = 5, ' + Fore.LIGHTYELLOW_EX + 'saturday' + Fore.WHITE + ' = 6, ' + Fore.LIGHTYELLOW_EX + 'sunday' + Fore.WHITE +  ' = 7, ' + Fore.LIGHTYELLOW_EX + 'Everyday' + Fore.WHITE + ' = 8.): '))
+
+
+                        if days.isnumeric():
+
+                          num = int(days)
+
+                          if num == 1:
+
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('monday')
+
+
+                              MondayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              MondayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              MondayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              MondayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 2:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('tuesday')
+
+
+                              TuesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              TuesdayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              TuesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              TuesdayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 3:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('wednesday')
+
+
+                              WednesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              WednesdayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              WednesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              WednesdayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 4:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('thursday')
+
+
+                              ThursdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              ThursdayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              ThursdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              WednesdayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 5:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('friday')
+
+
+                              FridayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              FridayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              FridayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              FridayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 6:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('saturday')
+
+
+                              SaturdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SaturdayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              SaturdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              SaturdayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 7:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('sunday')
+
+
+                              SundayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SundayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              SundayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              SundayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num == 8:
+                            if med != '' and amount != '' and time_ask != '':
+                              day_list.append('monday, tuesday, wednesday, thursday, friday, saturday, sunday')
+
+                              MondayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              TuesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              WednesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              ThursdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              FridayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SaturdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SundayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                              MondayTimeList.append(time_list[len(time_list) - 1])
+                              TuesdayTimeList.append(time_list[len(time_list) - 1])
+                              WednesdayTimeList.append(time_list[len(time_list) - 1])
+                              ThursdayTimeList.append(time_list[len(time_list) - 1])
+                              FridayTimeList.append(time_list[len(time_list) - 1])
+                              SaturdayTimeList.append(time_list[len(time_list) - 1])
+                              SundayTimeList.append(time_list[len(time_list) - 1])
+
+                            elif med != '' and amount != '' and time_ask == '':
+                              MondayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              TuesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              WednesdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              ThursdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              FridayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SaturdayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+                              SundayMedDoseList.append(med_list[len(med_list) - 1] + ' ' + dose_list[len(dose_list) - 1])
+
+                            elif med == '' and amount == '' and time_ask != '':
+                              MondayTimeList.append(time_list[len(time_list) - 1])
+                              TuesdayTimeList.append(time_list[len(time_list) - 1])
+                              WednesdayTimeList.append(time_list[len(time_list) - 1])
+                              ThursdayTimeList.append(time_list[len(time_list) - 1])
+                              FridayTimeList.append(time_list[len(time_list) - 1])
+                              SaturdayTimeList.append(time_list[len(time_list) - 1])
+                              SundayTimeList.append(time_list[len(time_list) - 1])
+
+                            restart1 = True
+
+                          if num > 8 or num < 1:
+                            sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                            print(sorry)
+                            print('Pick a number between 1 and 7')
+                            print()
+                            restart1 = False
+
+                        else:
+                          sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                          print(sorry)
+                          print()
+                          restart1 = False
+
+                    print()
+
+                    print('This is your current list of ' + Fore.RED + 'medications and doses: ' + Fore.WHITE + "Monday: " + Fore.MAGENTA + str(MondayMedDoseList) + Fore.WHITE + ', Tuesday: ' + Fore.MAGENTA + str(TuesdayMedDoseList) + Fore.WHITE + ', Wednesday: ' + Fore.MAGENTA + str(WednesdayMedDoseList) + Fore.WHITE + ', Thursday: ' + Fore.MAGENTA + str(ThursdayMedDoseList) + Fore.WHITE + ', Friday: ' + Fore.MAGENTA + str(FridayMedDoseList) + Fore.WHITE + ', Saturday: ' + Fore.MAGENTA + str(SaturdayMedDoseList) + Fore.WHITE + ', Sunday: ' + Fore.MAGENTA + str(SundayMedDoseList) + Fore.WHITE)
+                    print()
+                    print('This is your current list of ' + Fore.RED + 'days: ' + Fore.WHITE + str(day_list))
+                    print()
+                    print('This is your current list of ' + Fore.RED + 'times: ' + Fore.WHITE + Fore.WHITE + "Monday: " + Fore.MAGENTA + str(MondayTimeList) + Fore.WHITE + ', Tuesday: ' + Fore.MAGENTA + str(TuesdayTimeList) + Fore.WHITE + ', Wednesday: ' + Fore.MAGENTA + str(WednesdayTimeList) + Fore.WHITE + ', Thursday: ' + Fore.MAGENTA + str(ThursdayTimeList) + Fore.WHITE + ', Friday: ' + Fore.MAGENTA + str(FridayTimeList) + Fore.WHITE + ', Saturday: ' + Fore.MAGENTA + str(SaturdayTimeList) + Fore.WHITE + ', Sunday: ' + Fore.MAGENTA + str(SundayTimeList) + Fore.WHITE)
+                    print()
+
+                    restart10 = True
+                    while restart10 == True:
+                      stop_ask = str(input('Is that all (y/n): '))
+  
+                      if stop_ask == "Y" or stop_ask == "y" or stop_ask == "Yes" or stop_ask == "yes":
+                        print()
+                        restart10 = False
+                        Menu()
+  
+                      elif stop_ask == "N" or stop_ask == "n" or stop_ask == "No" or stop_ask == "no":
+                        print()
+                        restart10 = False
+                        Medtracker()
+  
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print()
+
+                  Medtracker()
+
+# Reminder =======================================================================================================================================
+                elif SplitOff == "reminder" and (med_list != [] and time_list != [] and day_list != [] and dose_list != []):
+                  def monday():
+                    if MondayMedDoseList != []:
+                      if "morning" in MondayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Monday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(MondayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in MondayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Monday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(MondayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in MondayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Monday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(MondayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                    else:
+                      print('No reminders for Monday')
+
+                  def tuesday():
+                    if TuesdayMedDoseList != []:
+                      if "morning" in TuesdayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Tuesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(TuesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in TuesdayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Tuesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(TuesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in TuesdayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Tuesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(TuesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                    else:
+                      print('No reminders for Tuesday')
+
+                  def wednesday():
+                    if WednesdayMedDoseList != []:
+                      if "morning" in WednesdayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Wednesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(WednesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in WednesdayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Wednesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(WednesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in WednesdayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Wednesday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(WednesdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      else:
+                        print('No reminders for Wednesday')
+
+                  def thursday():
+                    if ThursdayMedDoseList != []:
+                      if "morning" in ThursdayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Thursday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(ThursdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in ThursdayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Thursday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(ThursdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in ThursdayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Thursday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(ThursdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+                    else:
+                      print('No reminders for Thursday')
+
+                  def friday():
+                    if FridayMedDoseList != []:
+                      if "morning" in FridayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Friday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(FridayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in FridayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Friday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(FridayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in FridayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Friday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(FridayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+                    else:
+                      print('No reminders for Friday')
+
+                  def saturday():
+                    if SaturdayMedDoseList != []:
+                      if "morning" in SaturdayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Saturday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SaturdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in SaturdayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Saturday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SaturdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in SaturdayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Saturday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SaturdayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                    else:
+                      print('No reminders for Saturday')
+
+                  def sunday():
+                    if SundayMedDoseList != []:
+                      if "morning" in SundayTimeList and datetime.now().hour <= 18 and datetime.now().hour >= 7:
+                        print('Good morning 🌅, it is Sunday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SundayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "afternoon" in SundayTimeList and datetime.now().hour > 18 and datetime.now().hour > 1:
+                        print('Good afternoon ☀️, it is Sunday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SundayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                      if "evening" in SundayTimeList and datetime.now().hour >= 1 and datetime.now().hour < 7:
+                        print('Good evening 🌑, it is Sunday')
+                        print('💊 You have to take: ' + Fore.BLUE + str(SundayMedDoseList) + Fore.WHITE + ', right now 💊')
+                        print()
+
+                    else:
+                      print('No reminders for Sunday')
+
+                  print('This Menu is to check the' + Fore.MAGENTA + ' Medicines ' + Fore.WHITE + 'you have to take for the day')
+                  input('Press enter to continue: ')
+                  print()
+
+                  time.sleep(1)
+                  quote_ran = random.choice(quotes)
+                  quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+                  print(quote)
+                  time.sleep(3)
+                  print()
+
+                  print('This is your current list of ' + Fore.RED + 'medications and doses: ' + Fore.WHITE + "Monday: " + Fore.MAGENTA + str(MondayMedDoseList) + Fore.WHITE + ', Tuesday: ' + Fore.MAGENTA + str(TuesdayMedDoseList) + Fore.WHITE + ', Wednesday: ' + Fore.MAGENTA + str(WednesdayMedDoseList) + Fore.WHITE + ', Thursday: ' + Fore.MAGENTA + str(ThursdayMedDoseList) + Fore.WHITE + ', Friday: ' + Fore.MAGENTA + str(FridayMedDoseList) + Fore.WHITE + ', Saturday: ' + Fore.MAGENTA + str(SaturdayMedDoseList) + Fore.WHITE + ', Sunday: ' + Fore.MAGENTA + str(SundayMedDoseList) + Fore.WHITE)
+                  print()
+                  print('This is your current list of ' + Fore.RED + 'days: ' + Fore.WHITE + str(day_list))
+                  print()
+                  print('This is your current list of ' + Fore.RED + 'times: ' + Fore.WHITE + Fore.WHITE + "Monday: " + Fore.MAGENTA + str(MondayTimeList) + Fore.WHITE + ', Tuesday: ' + Fore.MAGENTA + str(TuesdayTimeList) + Fore.WHITE + ', Wednesday: ' + Fore.MAGENTA + str(WednesdayTimeList) + Fore.WHITE + ', Thursday: ' + Fore.MAGENTA + str(ThursdayTimeList) + Fore.WHITE + ', Friday: ' + Fore.MAGENTA + str(FridayTimeList) + Fore.WHITE + ', Saturday: ' + Fore.MAGENTA + str(SaturdayTimeList) + Fore.WHITE + ', Sunday: ' + Fore.MAGENTA + str(SundayTimeList) + Fore.WHITE)
+                  print()
+
+                  time.sleep(1)
+
+                  print('📄 Welcome to the Reminder Menu 📄')
+                  print('This page is a reminder to tell you when you need to take the medication: ')
+                  print()
+                  stop_remind0 = False
+
+                  while stop_remind0 == False:
+                    stop_remind = input('Press' + Fore.BLUE + ' enter ' + Fore.WHITE + 'to check and type' + Fore.BLUE + ' "stop" ' + Fore.WHITE + 'to return to menu: ')
+                    print()
+                    print('Checking...')
+                    time.sleep(1)
+                    print()
+
+                    if stop_remind == '':
+                      if date.today().weekday() == 0:
+                        monday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 1:
+                        monday()
+
+                      if date.today().weekday() == 1:
+                        tuesday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 2:
+                        tuesday()
+
+                      if date.today().weekday() == 2:
+                        wednesday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 3:
+                        wednesday()
+
+                      if date.today().weekday() == 3:
+                        thursday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 4:
+                        thursday()
+
+                      if date.today().weekday() == 4:
+                        friday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 5:
+                        friday()
+
+                      if date.today().weekday() == 5:
+                        saturday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 6:
+                        saturday()
+
+                      if date.today().weekday() == 6:
+                        sunday()
+
+                      elif datetime.now().hour >= 1 and datetime.now().hour < 7 and date.today().weekday() == 0:
+                        sunday()
+
+
+                    if stop_remind == 'stop':
+                      print('Thank you for using 💊 Medication Tracker 💊')
+                      print()
+                      stop_remind0 = True
+                      Menu()
+
+                    else:
+                      stop_remind0 = False
+                      print()
+
+                else:
+                  sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                  print(sorry)
+                  print()
+                  SubDownMenu4()
+
+              SubDownMenu4()
+
+# Re-attempting Username and Password ========================================================
+            elif attempt == 3:
+              print()
+              print(Fore.RED + "Too Many Attempts" + Fore.WHITE)
+              seconds = 5 * 60
+
+              while seconds:
+                mins = seconds // 60
+                secs = seconds % 60
+                timer = '{:02d}:{:02d}'.format(mins, secs)
+                print(timer, end="\r")
+
+                time.sleep(1)
+
+                seconds -= 1
+
+
+              print()
+              Menu()
+
+            else:
+              sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+              print(sorry)
+              print()
+              Menu()
+
+        else:
+          sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+          print(sorry)
+          print()
+          SubMenu3()  
+
+      SubdownMenu3()
+    SubMenu3()
+
+# Therapist/Psychiatrist Finder =====================================================================================
+  elif select == "4":
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+    
+    warning = fontstyle.apply('registered psychologist, pyshciatrist, or therapist ', 'Underline/Bold/red')
+    print('* REMINDER: I am not a ' + Fore.RED + warning + Fore.WHITE + '*')
+    print('This section is to choose a personal' + Fore.BLUE + ' therapist or psychiatrists ' + Fore.WHITE + 'and set' + Fore.BLUE + ' appointments ' + Fore.WHITE + 'with them.')
+    input('Press enter to continue: ')
+    print()
+
+    time.sleep(1)
+    quote_ran = random.choice(quotes)
+    quote = fontstyle.apply(quote_ran, 'Faint/Italic/white')
+    print(quote)
+    time.sleep(3)
+    print()
+    
+    def SubMenu5():
+
+      print('🩺 Welcome to the Therapist/Psychaitrist Menu 🩺')
+      print()
+
+# Select to select a therapist or pyschaitrist ==============================================================================
+      def menu4_selection():
+        selection = input('Type "Therapist" to select a therapist, type "Psychaitrist" to select a psychaitrist, type "Appointment" to set or see appointments, type "Back" to go back to the main menu: ')
+        
+        if selection == "Therapist" or selection == "therapist":
+          def SubdownMenu6():
+            restart2 = True
+            while restart2 == True:
+              print('Type the number of the therapist (not phone number): ')
+              print()
+              for i in range(len(thera_list)):
+                print(str(i + 1) + '. ' + thera_list[i])
+  
+              thera_select = input('')
+  
+              if thera_select.isnumeric():
+                list_thera.append(thera_list[int(thera_select) - 1])
+                thera_list.remove(thera_list[int(thera_select) - 1])
+                restart2 = False
+  
+              else:
+                sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                print(sorry)
+                print('Select a number between 1 and 10')
+                print()
+                restart2 = True
+  
+            print()
+            print('This is your current list of therapists: ' + str(list_thera))
+            print()
+  
+            restart3 = True
+            while restart3 == True:
+              thera_add = input('Is that all (y/n): ')
+    
+              if thera_add == "Yes" or thera_add == "yes" or thera_add == "Y" or thera_add == "y":
+                print()
+                restart3 = False
+                Menu()
+    
+              if thera_add == "No" or thera_add == "no" or thera_add == "N" or thera_add == "n":
+                print()
+                SubdownMenu6()
+                print()
+    
+              else:
+                sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                print(sorry)
+                restart3 = False
+                print()
+  
+          SubdownMenu6()
+  
+        elif selection == "Psychaitrist" or selection == "psychaitrist":
+          def SubdownMenu7():
+            restart2 = True
+            while restart2 == True:
+              print('Type the number of the psychaitrist (not phone number): ')
+              print()
+              for i in range(len(pyschs_list)):
+                print(str(i + 1) + '. ' + pyschs_list[i])
+  
+              pysch_select = input('')
+  
+              if pysch_select.isnumeric():
+                list_pysch.append(pyschs_list[int(pysch_select) - 1])
+                pyschs_list.remove(pyschs_list[int(pysch_select) - 1])
+                restart2 = False
+  
+              else:
+                sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                print(sorry)
+                print('Select a number between 1 and 10')
+                print()
+                restart2 = True
+  
+            print()
+            print('This is your current list of psychiatrist: ' + str(list_pysch))
+            print()
+  
+            restart4 = True
+            while restart4 == True:
+              psych_add = input('Is that all (y/n): ')
+  
+              if psych_add == "Yes" or psych_add == "yes" or psych_add == "Y" or psych_add == "y":
+                print()
+                restart4 = False
+                Menu()
+  
+              if psych_add == "No" or psych_add == "no" or psych_add == "N" or psych_add == "n":
+                print()
+                restart4 = True
+                SubdownMenu7()
+                print()
+  
+              else:
+                sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                print(sorry)
+                restart4 = False
+                print()
+  
+          SubdownMenu7()
+# Appointment Tracker ======================================================================================================
+        elif selection == 'Appointment' and list_pysch != [] or list_thera != []:
+          print('📄 Welcome to the Appointment Set Menu 📄')
+          print('You can use this to set up and track appointments')
+          print()
+          def restart0():
+            selection2 = input('Type "set" to set up an appointment or type "track" to see your next appointment: ')
+            print()
+
+            if selection2 == "set" or selection2 == "Set":
+              def set():
+                print('You should first call your doctor and set an appointment')
+                print('Press enter if you dont want to add anything')
+                input('Press enter to continue: ')
+                print()
+
+                if list_pysch != []:
+                  print('This is your list of Psychiatrists:')
+                  for i in range(len(list_pysch)):
+                    print(str(i + 1) + '. ' + list_pysch[i])
+                    print()
+
+                    restart8 = True
+                    while restart8 == True:
+                      doctor_select_psych = input('Type the' + Fore.GREEN + ' number ' + Fore.WHITE + 'of the' + Fore.GREEN + ' Psychiatrist ' + Fore.WHITE + 'you want to set an appointment with: ')
+
+                      if doctor_select_psych != '' and doctor_select_psych.isnumeric():
+                        doctor_select_psych = int(doctor_select_psych)
+                        global doctor_select_psych2
+                        doctor_select_psych2 = list_pysch[doctor_select_psych - 1]
+                        restart8 = False
+
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print('Select a number between like 1, 2, 3 or press enter')
+                        print()
+
+                    restart13 = True
+                    while restart13 == True:
+                      global day_psych
+                      day_psych = input('What' + Fore.GREEN + ' day ' + Fore.WHITE + 'is the appointment with your Psychiatrist set on, type year month and day (ex: 2023-10-27): ')
+                      if day_psych != '':
+                        days.append(day_psych)
+                        restart13 = False
+
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print('Select a day')
+                        print()
+
+                    global time_psych
+                    time_psych = input('What' + Fore.GREEN + ' time ' + Fore.WHITE + 'is it (Press enter if there is no time): ')
+
+                    if time_psych == '':
+                      time_psych = 'whatever time is best for you'
+
+                if list_thera != []:
+                  print('This is your list of Therapist:')
+                  for i in range(len(list_thera)):
+                    print(str(i + 1) + '. ' + list_thera[i])
+                    print()
+
+                    restart9 = True
+                    while restart9 == True:
+                      doctor_select_thera = input('Type the ' + Fore.GREEN + ' number ' + Fore.WHITE + 'of the' + Fore.GREEN + ' Therapist ' + Fore.WHITE + 'you want to set an appointment with: ')
+
+                      if doctor_select_thera != '' and doctor_select_thera.isnumeric():
+                        doctor_select_thera = int(doctor_select_thera)
+                        global doctor_select_thera2
+                        doctor_select_thera2 = list_thera[doctor_select_thera - 1]
+                        restart9 = False
+
+                      elif doctor_select_thera == '':
+                        restart9 = False
+
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print('Select a number between like 1, 2, 3 or press enter')
+                        print()
+
+                    restart12 = True
+                    while restart12 == True:
+                      global day_thera
+                      day_thera = input('What' + Fore.GREEN + ' day ' + Fore.WHITE + 'is the appointment with your Therapist set on, type year month and day (ex: 2023-10-27): ')
+                      if day_thera != '':
+                        days.append(day_thera)
+                        restart12 = False
+
+                      else:
+                        sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                        print(sorry)
+                        print('Select a day')
+                        print()
+                          
+                    global time_thera
+                    time_thera = input('What' + Fore.GREEN + ' time ' + Fore.WHITE + 'is it (Press enter if there is no time): ')
+  
+                    if time_thera == '':
+                      time_thera = 'whatever time is best for you'
+
+                if list_pysch != [] and day_psych != '':
+                  appointmentPsych.append('appointment with Psychiatrist: ' + doctor_select_psych2 + ' on ' + day_psych + ' at ' + time_psych)
+
+                if list_thera != [] and day_thera != '':
+                  appointmentThera.append('appointment with Therapist: ' + doctor_select_thera2 + ' on ' + day_thera + ' at ' + time_thera)
+
+                print()
+                print('This is your current list of appointments with Therapists: ' + str(appointmentThera))
+                print('This is your current list of appointments with Psychaitrists: ' + str(appointmentPsych))
+                print()
+
+                selection9 = input('Is that all (y/n): ')
+
+                if selection9 == 'n' or selection9 == 'N' or selection9 == 'no' or selection9 == 'No':
+                  print()
+                  set()
+
+                else:
+                  print()
+                  Menu()
+              set()
+
+
+            if selection2 == "track" and (appointmentPsych != [] or appointmentThera != []):
+              print('📄 Welcome to Appointment Tracker 📄')
+              print()
+              print('This is your current list of appointments with Therapists: ' + str(appointmentThera))
+              print('This is your current list of appointments with Psychaitrists: ' + str(appointmentPsych))
+              print()
+
+              global today
+              if datetime.now().hour >= 1 and datetime.now().hour < 7:
+                currentDay = date.today().day - 1
+                yearMonth = date.today().strftime("%Y-%m")
+                today = str(yearMonth) + "-" + str(currentDay)
+
+              else:
+                today = date.today().strftime("%Y-%m-%d")
+
+              restart11 = True
+              while restart11 == True:
+                check = input('Type "check" to check if you have an appointment, and type "stop" to go back to menu: ')
+
+                if check == 'check' or check == 'Check':
+                  print()
+                  print('checking...')
+                  time.sleep(1)
+                  print()
+                  
+                  if today in days:
+                    for i in range(len(appointmentThera)):
+                      find_app = appointmentThera[i].find(today)
+
+                      if find_app != -1:
+                        print('Today you have an ' + appointmentThera[i])
+                        print()
+
+                      else:
+                        print("No psychiatrist appointments today")
+                        print()
+
+                  if today in days:
+                    for i in range(len(appointmentPsych)):
+                      find_app = appointmentPsych[i].find(today)
+
+                      if find_app != -1:
+                        print('Today you have an ' + appointmentPsych[i])
+                        print()
+
+                      else:
+                        print("No psychiatrist appointments today")
+                        print()
+
+                  else:
+                    print('No appointments at all')
+
+
+                elif check == 'stop' or check == 'Stop':
+                  print()
+                  print('📄 Thank you for using the Appointment Tracker 📄')
+                  restart11 = False
+                  Menu()
+
+                else:
+                  sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+                  print(sorry)
+                  print()
+               
+            else:
+              sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+              print(sorry)
+              print()
+              restart0()
+
+          restart0()
+
+        elif selection == 'Back' or selection == 'back':
+          print()
+          Menu()
+                
+        else:
+          sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+          print(sorry)
+          restart4 = False
+          print()
+          SubMenu5()
+          
+      menu4_selection()    
+    SubMenu5()  
+
+
+
+
+#Exit Area
+  elif select == "5":
+    print('Thank You For Using ' + Fore.GREEN + 'FinerPsych 🧠')
+
+#Restart for wrong button
+  else:
+    sorry = fontstyle.apply('❌ Sorry but that is not something you cannnot select ❌', 'Underline/Bold/red')
+    print(sorry)
+    print()
+    Menu()
+
+Menu()
